@@ -1,0 +1,64 @@
+package com.example.demo.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Table(name="units")
+@Entity
+public class Units {
+	
+	@Id
+	@Column(name="units_id")
+    @GeneratedValue(strategy = GenerationType.Auto)
+	private Integer Id;
+	
+	@Column(name="unitName" ,unique=true)
+	private String UnitName;
+	
+
+	@Column(name="unitActive")
+	private Boolean unitActive;
+
+	public Units() {
+		super();
+	}
+	
+
+	public Units(Integer id, String unitName, Boolean unitActive) {
+		super();
+		Id = id;
+		UnitName = unitName;
+		this.unitActive = unitActive;
+	}
+	
+	
+	public Integer getId() {
+		return Id;
+	}
+
+	public void setId(Integer id) {
+		Id = id;
+	}
+
+	public String getUnitName() {
+		return UnitName;
+	}
+
+	public void setUnitName(String unitName) {
+		UnitName = unitName;
+	}
+
+	public Boolean getUnitActive() {
+		return unitActive;
+	}
+
+	public void setUnitPresence(Boolean unitActive) {
+		this.unitActive = unitActive;
+	}
+
+	
+
+}

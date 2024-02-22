@@ -1,0 +1,21 @@
+package com.example.demo.dto;
+
+import jakarta.validation.constraints.NotEmpty;
+import lombok.Data;
+
+@Data
+public class CustomerDto {
+
+	
+	
+	@NotEmpty(message="Name cannot be Null or Empty")
+	private String name;
+	
+	@NotEmpty(message="Email cannot be Null or Empty")
+	private String email;
+	private String mobileNumber;
+	private AccountsDto accountsDto;
+	
+	
+	
+}

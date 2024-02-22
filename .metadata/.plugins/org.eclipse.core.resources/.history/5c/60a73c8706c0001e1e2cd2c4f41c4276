@@ -1,0 +1,17 @@
+package com.example.demo.Service;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.example.demo.model.Units;
+
+public interface UnitsService {
+
+    List<Units> getAllUnits();
+    Units getUnitById(Long id);
+    List<Units> getActiveUnits();
+    Units createUnit(Units unit);
+    Units updateUnit(Units updatedUnit);
+    void deleteUnit(Long id);
+}

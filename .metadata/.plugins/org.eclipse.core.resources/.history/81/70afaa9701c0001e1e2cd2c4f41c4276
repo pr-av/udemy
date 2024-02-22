@@ -1,0 +1,47 @@
+package com.example.demo.ServiceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.Repository.UnitsRepository;
+import com.example.demo.Service.UnitsService;
+import com.example.demo.model.Units;
+@Service
+public class UnitserviceImpl implements UnitsService {
+@Autowired
+UnitsRepository unitsRepository;
+	
+	
+	@Override
+	public Units addUnit(Units unit) {
+		return unitsRepository.save(unit) ;
+	}
+
+	@Override
+	public Units updateUnit(Units unit) {
+		Units unitService=unitsRepository.getUnitByUnitName(unit.getUnitName());
+		unitService.setUnitPresence(unit.getUnitPresence());;
+		return unitsRepository.save(unitService);
+	}
+
+	@Override
+	public Units deleteUnit(Units unit) {
+		Units unitService=unitsRepository.getUnitByUnitName(unit.getUnitName());
+		 unitsRepository.deleteById(unitService.getId());
+		 return unit;
+	}
+
+	@Override
+	public List<Units> getActiveUnits() {
+		return null;
+	}
+
+	@Override
+	public Units getUnitByName(String unitName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

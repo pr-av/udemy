@@ -1,0 +1,13 @@
+create table IF NOT EXISTS 'accounts'(
+'customer_id' int NOT NULL,
+'account_number' int AUTO_INCREMENT PRIMARY KEY,
+'account_type' varchar(200) NOT NULL,
+'branch_address' varhcar(100) NOT NULL,
+'created_at' date NOT NULL,
+'created_by' varchar(100) NOT NULL,
+'updated_at' date DEFAULT NULL,
+'updated_by' varchar(100) DEFAULT NULL);
+
+
+
+

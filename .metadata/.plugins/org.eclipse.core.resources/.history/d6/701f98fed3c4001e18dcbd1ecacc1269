@@ -1,0 +1,20 @@
+package com.example.demo.Configuration;
+
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+public class TwilioConfigration {
+	  public static final String ACCOUNT_SID = "ACbb50b0989b77765aa4b70ffa8e6c9782";
+	  public static final String AUTH_TOKEN = "[AuthToken]";
+
+	  public static void main(String[] args) {
+	    Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+	    Message message = Message.creator(
+	      new com.twilio.type.PhoneNumber("whatsapp:+919632070931"),
+	      new com.twilio.type.PhoneNumber("whatsapp:+14155238886"),
+	      "https://www.youtube.com/watch?v=Wn9L1MD_y0Y")
+	    .create();
+
+	    System.out.println(message.getSid());
+	  }
+	}
+

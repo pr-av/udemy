@@ -1,0 +1,56 @@
+package com.example.demo.ServiceImpl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.Exception.UnitNotFoundException;
+import com.example.demo.Repository.UnitsRepository;
+import com.example.demo.Service.UnitsService;
+import com.example.demo.model.Units;
+
+import jakarta.persistence.EntityNotFoundException;
+@Service
+public class UnitserviceImpl implements UnitsService {
+@Autowired
+UnitsRepository unitsRepository;
+	
+@Override
+public List<Units> getAllUnits() {
+    return unitsRepository.findAll();
+}
+
+@Override
+public Units getUnitByName(String name) {
+    return unitsRepository.getUnitByUnitName(name)
+            .orElseThrow(() -> new UnitNotFoundException(name));
+}
+
+@Override
+public List<Units> getActiveUnits() {
+    return unitsRepository.findByUnitStatusTrue(true);
+}
+
+@Override
+public Units createUnit(Units unit) {
+    return unitsRepository.save(unit);
+}
+
+@Override
+public Units updateUnitActiveStatus(String name, boolean active) {
+    return unitsRepository.getUnitByUnitName(name).map(existingUnit->{
+                existingUnit.setUnitStatus(active);
+                return unitsRepository.save(existingUnit);
+            })
+            .orElseThrow(() -> new EntityNotFoundException("Unit with name " + name + " not found"));
+}
+
+@Override
+public void deleteUnit(String name) {
+	Optional<Units> unit=unitsRepository.getUnitByUnitName(name);
+	unitsRepository.deleteById(unit.get().getId());
+}
+
+}

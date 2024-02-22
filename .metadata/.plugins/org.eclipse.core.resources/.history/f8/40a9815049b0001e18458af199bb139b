@@ -1,0 +1,12 @@
+package com.example.demo.mapper;
+
+import com.example.demo.dto.AccountsDto;
+import com.example.demo.entity.Accounts;
+
+public class AccountsMapper {
+	
+	public static AccountsDto maptToAccountsDto(Accounts accounts,AccountsDto accountsDto) {
+		accountsDto.
+	}
+
+}

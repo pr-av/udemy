@@ -1,0 +1,36 @@
+package com.example.demo.dto;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data
+@Setter
+@Getter
+@Schema(
+		name="Customer",
+		description="Schema to hold Customer and  Accounts Information")
+public class AccountsDto {
+	
+	
+	@Schema(name="Name of the Customer",example="9402924303")
+	@NotEmpty(message = "Account Number cannot be empty or Null")
+	@Pattern(regexp="(^$[0-9]{10})", message="Account Number mus be 10 digit")
+	private Long accountNumber;
+	
+
+
+	@Schema(name="Type of account",example="Savings")	
+	@NotEmpty(message = "Account type cannot be empty or Null")
+	private String accountType;
+	
+	
+
+
+	@Schema(name="Address of the branch",example="Sankeshwar")
+	@NotEmpty(message = "BranchAddress cannot be empty or Null")
+	private String branchAddress;
+}

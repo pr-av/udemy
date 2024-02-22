@@ -1,0 +1,18 @@
+package com.example.demo.Repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.entity.Accounts;
+
+@Repository
+public interface AccountsRepository extends JpaRepository<Accounts, Long>{
+	
+	@Query(value="Select a from accounts a where a.customer_id: customerId",nativeQuery=true)
+	public Optional<Accounts>  fetchAccountDetails(Long customerId);
+
+}

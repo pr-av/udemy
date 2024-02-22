@@ -1,0 +1,25 @@
+package com.example.demo.ServiceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.Repository.AccountsRepository;
+import com.example.demo.Repository.CustomerRepository;
+import com.example.demo.Service.IAccountService;
+import com.example.demo.dto.CustomerDto;
+@Service
+public class AccountServiceImpl implements IAccountService {
+
+	
+	@Autowired
+	AccountsRepository accountsRepository;
+	
+	@Autowired
+    CustomerRepository customerRepository;
+	
+	@Override
+	public void createAccount(CustomerDto customerDto) {
+		
+	}
+
+}

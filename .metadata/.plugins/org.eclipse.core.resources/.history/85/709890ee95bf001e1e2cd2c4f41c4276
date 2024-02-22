@@ -1,0 +1,32 @@
+package com.example.demo.entity;
+
+import java.time.LocalDateTime;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import jakarta.persistence.Column;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+@Getter@Setter@ToString
+public class BaseEntity {
+	@CreatedDate
+	@Column(insertable=false)
+	private LocalDateTime created_at;
+	
+	@CreatedBy
+	@Column(insertable=false)
+	private String created_by;
+	
+	@LastModifiedDate
+	@Column(updatable = false)
+	private LocalDateTime updated_at;
+	
+	@LastModifiedBy
+	@Column(updatable = false)
+	private String updated_by;
+
+}

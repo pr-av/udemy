@@ -1,0 +1,28 @@
+package com.example.demo.Repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.model.Units;
+
+@Repository
+public interface UnitsRepository  extends JpaRepository<Units, Integer> {
+
+	@Query(value="Select u from Units u where u.UnitName= :unitName ")
+	public Units getUnitByUnitName(String unitName);
+
+	  Optional<Units> findByName(String UnitName);
+
+
+	    @Query("SELECT u FROM Units u WHERE u.UnitStatus = :UnitStatus")
+	    public List<Units> findByUnitStatusTrue(@Param("UnitStatus") boolean UnitStatus);
+
+	    void deleteByName(String UnitName);
+	
+	
+}

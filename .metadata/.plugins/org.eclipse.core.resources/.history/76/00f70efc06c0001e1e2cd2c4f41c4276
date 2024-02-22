@@ -1,0 +1,88 @@
+package com.example.demo.ServiceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.Repository.UnitsRepository;
+import com.example.demo.Service.UnitsService;
+import com.example.demo.model.Units;
+
+import jakarta.persistence.EntityNotFoundException;
+@Service
+public class UnitserviceImpl implements UnitsService {
+@Autowired
+UnitsRepository unitsRepository;
+	
+	
+
+@Override
+public Units createUnit(Units unit) {
+	return unitsRepository.save(unit);
+}
+
+
+
+
+
+
+
+
+
+
+	@Override
+	public List<Units> getAllUnits() {
+		return unitsRepository.findAll();
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	@Override
+	public Units updateUnitActiveStatus(String name, boolean active) {
+		return null;
+	}
+
+
+
+
+
+
+
+	@Override
+	public void deleteUnit(Long id) {
+		
+	}
+
+
+	@Override
+	public Units getUnitByName(String unitName) {
+		return unitsRepository.getUnitByUnitName(unitName);
+	}
+
+
+
+
+
+
+
+
+
+
+
+	@Override
+	public List<Units> getActiveUnits() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

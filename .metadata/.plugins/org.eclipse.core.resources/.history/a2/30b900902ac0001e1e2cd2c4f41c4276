@@ -1,0 +1,16 @@
+package com.example.demo.Service;
+
+import java.util.List;
+
+import com.example.demo.model.UnitStatus;
+import com.example.demo.model.Units;
+
+public interface UnitsService {
+	  
+	List<Units> getAllUnits();
+	    Units getUnitByName(String name);
+	    List<Units> getActiveUnits();
+	    Units createUnit(Units unit);
+	    Units updateUnitActiveStatus(String name, UnitStatus active);
+	    void deleteUnit(String name);
+}

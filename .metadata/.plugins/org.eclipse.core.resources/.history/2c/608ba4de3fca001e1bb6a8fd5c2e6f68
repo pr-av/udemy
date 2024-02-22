@@ -1,0 +1,8 @@
+server.port=9090
+spring.datasource.url=jdbc:postgresql://localhost:5433/UnitsData
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+
+# Hibernate settings
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update

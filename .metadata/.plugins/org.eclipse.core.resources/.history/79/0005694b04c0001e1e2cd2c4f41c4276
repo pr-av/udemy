@@ -1,0 +1,61 @@
+package com.example.demo.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.Service.UnitsService;
+import com.example.demo.model.Units;
+
+@RestController
+@RequestMapping("/api/units")
+public class UnitsController {
+	
+	@Autowired
+	UnitsService unitsService;
+	
+	  @GetMapping
+	    public List<Units> getAllUnits() {
+	        return unitsService.getAllUnits();
+	    }
+
+	    // Read Unit by Id
+	    @GetMapping("/{id}")
+	    public Units getUnitById(@PathVariable Long id) {
+	        return unitsService.getUnitById(id);
+	    }
+
+	    // Read Active Units
+	    @GetMapping("/active")
+	    public List<Units> getActiveUnits() {
+	        return unitsService.getActiveUnits();
+	    }
+
+	    // Create Unit
+	    @PostMapping
+	    public Units createUnit(@RequestBody Units unit) {
+	        return unitsService.createUnit(unit);
+	    }
+
+	    // Update Unit
+	    @PutMapping("/{id}")
+	    public Units updateUnit(@RequestBody Units updatedUnit) {
+	        return unitsService.updateUnit(updatedUnit);
+	    }
+
+	    // Delete Unit
+	    @DeleteMapping("/{id}")
+	    public void deleteUnit(@PathVariable Long id) {
+	    	unitsService.deleteUnit(id);
+	    }
+	
+
+}

@@ -1,0 +1,66 @@
+package com.example.demo.ServiceImpl;
+
+import java.time.LocalDateTime;
+import java.util.Optional;
+import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.Exception.CustomerAlreadyExistsException;
+import com.example.demo.Exception.ResourceNotFoundException;
+import com.example.demo.Repository.AccountsRepository;
+import com.example.demo.Repository.CustomerRepository;
+import com.example.demo.Service.IAccountService;
+import com.example.demo.constants.AccountsConstants;
+import com.example.demo.dto.CustomerDto;
+import com.example.demo.entity.Accounts;
+import com.example.demo.entity.Customer;
+import com.example.demo.mapper.CustomerMapper;
+@Service
+public class AccountServiceImpl implements IAccountService {
+
+	
+	@Autowired
+	AccountsRepository accountsRepository;
+	
+	@Autowired
+    CustomerRepository customerRepository;
+	
+	@Override
+	public void createAccount(CustomerDto customerDto) {
+		
+		Customer customer=CustomerMapper.maptToAccounts(customerDto, new Customer());
+		Optional<Customer> optionalCustomer= customerRepository.findBymobileNumber(customer.getMobileNumber());
+		if(optionalCustomer.isPresent()) {
+			throw new CustomerAlreadyExistsException("Customer Already registred with the given mobile number "+ customer.getMobileNumber());
+		}
+		customer.setCreated_at(LocalDateTime.now());
+		customer.setCreated_by("Anonymous");
+	
+		Customer savedCustomer =customerRepository.save(customer);
+		Accounts accounts=accountsRepository.save(createAccounts(savedCustomer));
+		
+	}
+
+	
+	private Accounts createAccounts(Customer customer) {
+		Accounts newAccounts=new Accounts();
+		newAccounts.setCustomerid(customer.getCustomerId());
+		Long randomAccoutnNo=1000000000L+new Random().nextInt(900000000);
+		newAccounts.setAccountNumber(randomAccoutnNo);
+		newAccounts.setAccountType(AccountsConstants.SAVINGS);
+		newAccounts.setBranchAddress(AccountsConstants.ADDRESS);
+		newAccounts.setCreated_at(LocalDateTime.now());
+		newAccounts.setCreated_by("Anonymous");
+		return newAccounts;
+	
+	}
+
+
+	@Override
+	public Accounts fetchAccountsDetails(String mobileNumber) {
+		customerRepository.findBymobileNumber(mobileNumber).orElseThrow(()->new ResourceNotFoundException("customer","mobileNumber",mobileNumber));
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.example.demo.Service;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dto.CustomerDto;
+import com.example.demo.entity.Accounts;
+@Service
+public interface IAccountService {
+
+	void createAccount(CustomerDto customerDto);
+	CustomerDto fetchAccountsDetails(String mobileNumber);
+
+}

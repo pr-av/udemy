@@ -1,0 +1,64 @@
+package com.example.demo.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Table(name="untis")
+@Entity
+public class Units {
+	
+	@Id
+	@Column(name="units_id")
+	private Integer Id;
+	
+	@Column(name="unitName")
+	private String UnitName;
+	
+
+	@Column(name="unitpresence")
+	private Boolean unitPresence;
+	
+	
+	
+
+	public Units() {
+		super();
+	}
+	
+
+	public Units(Integer id, String unitName, Boolean unitPresence) {
+		super();
+		Id = id;
+		UnitName = unitName;
+		this.unitPresence = unitPresence;
+	}
+	
+	
+	public Integer getId() {
+		return Id;
+	}
+
+	public void setId(Integer id) {
+		Id = id;
+	}
+
+	public String getUnitName() {
+		return UnitName;
+	}
+
+	public void setUnitName(String unitName) {
+		UnitName = unitName;
+	}
+
+	public Boolean getUnitPresence() {
+		return unitPresence;
+	}
+
+	public void setUnitPresence(Boolean unitPresence) {
+		this.unitPresence = unitPresence;
+	}
+
+	
+
+}

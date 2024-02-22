@@ -1,0 +1,60 @@
+package com.example.demo.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.Service.UnitsService;
+import com.example.demo.model.Units;
+
+@RestController
+@RequestMapping("/api/units")
+public class UnitsController {
+	
+	@Autowired
+	UnitsService unitsService;
+	
+	  @GetMapping("/getAllUnits")
+	    public List<Units> getAllUnits() {
+	        return unitsService.getAllUnits();
+	    }
+
+	    // Read Unit by Name
+	    @GetMapping("getByName/{name}")
+	    public Units getUnitByName(@PathVariable String name) {
+	        return unitsService.getUnitByName(name);
+	    }
+
+	    // Read Active Units
+	    @GetMapping("/active")
+	    public List<Units> getActiveUnits() {
+	        return unitsService.getActiveUnits();
+	    }
+
+	    // Create Unit
+	    @PostMapping("/create")
+	    public Units createUnit(@RequestBody Units unit) {
+	        return unitsService.createUnit(unit);
+	    }
+	    @PutMapping("/updateActiveStatus/{name}")
+	    public Units updateActiveStatusByName(@PathVariable String name, @RequestParam boolean active) {
+	        return unitsService.updateUnitActiveStatus(name, active);
+	    }
+
+	    // Delete Unit by Name
+	    @DeleteMapping("/delete/{name}")
+	    public void deleteUnitByName(@PathVariable String name) {
+	    	unitsService.deleteUnit(name);
+	    }
+	
+
+}

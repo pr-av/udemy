@@ -1,0 +1,32 @@
+package com.example.demo.Controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+@RestController
+public class GroupMessagingController {
+	
+	@Autowired
+	RestTemplate restTemplate;
+	
+	
+
+    @PostMapping("/sendgroupmessage")
+    public void sendwhatsappstoitsgroups(@RequestBody Map<String, String> map) {
+        // Create a map with only values
+        Map<String, String> valuesMap = new HashMap<>();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            valuesMap.put(entry.getKey(), entry.getValue());
+        }
+        restTemplate.postForObject("http://localhost:9081/printMessageC/getMessagePrinted", valuesMap, Void.class);
+    }
+	
+
+
+}

@@ -1,0 +1,36 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  build:
+   version: "1.0"
+  accounts:
+   message: "Welcome to EasyBank accounts related local Apis"
+   contactDetails: 
+      name: "Praveen Kumbar"
+      email: "praveen@gmail.com"
+   onCallSupport:
+        - 9632070931
+        - 9000000001
+      
+   
+#springdoc:
+#  api-docs:
+#    path: /v3/api-docs
+#  swagger-ui:
+#    path: /swagger-ui/index.html
+

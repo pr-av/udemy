@@ -1,0 +1,66 @@
+package com.example.demo.Config;
+InputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+
+public class ExcelReader {
+	
+	
+	public String getUrlByApartIdFromExcel(int id) {
+	
+	   String filePath = "path/to/your/excel/file.xlsx";
+   try {
+           FileInputStream fileInputStream = new FileInputStream(new File(filePath));
+           Workbook workbook = new XSSFWorkbook(fileInputStream);
+           Sheet sheet = workbook.getSheetAt(0); 
+
+           int idColumnIndex = 0;
+           int urlColumnIndex = 2; 
+
+           List<Row> rows = sheet.subList(1, sheet.getLastRowNum() + 1); // Exclude header row
+
+           for (Integer targetId : targetIds) {
+               for (Row row : rows) {
+                   Cell idCell = row.getCell(idColumnIndex, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
+                   if (idCell != null && idCell.getCellType() == CellType.NUMERIC) {
+                       int currentId = (int) idCell.getNumericCellValue();
+                       if (currentId == targetId) {
+                           Cell urlCell = row.getCell(urlColumnIndex, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
+
+                           String url = (urlCell != null) ? urlCell.getStringCellValue() : "";
+
+                           System.out.println("ApartmentId: " + currentId);
+                           System.out.println("ApartmentUrl: " + url);
+                           System.out.println();
+
+                           // Move to the next target ID
+                           break;
+                       }
+                   }
+               }
+           }
+
+           workbook.close();
+           fileInputStream.close();
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+   }
+}
+

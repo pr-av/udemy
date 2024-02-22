@@ -1,0 +1,39 @@
+package com.example.demo.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Table(name="apartment")
+@Entity
+public class Apartment {
+	@Id
+	private int apId;
+
+	private String wtsgroupId;
+	
+	public int getApId() {
+		return apId;
+	}
+
+	public void setApId(int apId) {
+		this.apId = apId;
+	}
+
+	public String getWtsgroupId() {
+		return wtsgroupId;
+	}
+
+	public void setWtsgroupId(String wtsgroupId) {
+		this.wtsgroupId = wtsgroupId;
+	}
+
+	public Apartment(int apId, String wtsgroupId) {
+		super();
+		this.apId = apId;
+		this.wtsgroupId = wtsgroupId;
+	}
+
+	
+
+}

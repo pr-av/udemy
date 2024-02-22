@@ -1,0 +1,14 @@
+spring: 
+ activate:
+  on-profile: "prod"
+ build:
+   version: "2.0"
+accounts:
+   message: "Welcome to EasyBank accounts related local Apis"
+   contactDetails: 
+      name: "Danesh Bulla"
+      email: "danesh@gmail.com"
+   onCallSupport:
+        - 9632070931
+        - 9000000001
+      
