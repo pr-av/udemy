@@ -4,7 +4,7 @@ loans:
   message: "Welcome to EasyBank loans related local Apis"
   contactDetails:
     name: "Navami"
-    email: "navami@gmail.com"
+    email: "{cipher}41f3ae1bb840fb450887a9f0eb553e01fb722314230d63e51c42dc470490c0a9ab42025ec8b109368020aae92d20e6fd"
   onCallSupport:
     - 9632223224
     - 9000003554
