@@ -1,0 +1,12 @@
+
+build:
+   version: "1.0"
+loans:
+   message: "Welcome to EasyBank loans related local Apis"
+   contactDetails: 
+      name: "Praveen"
+      email: "praveenkumbar@gmail.com"
+   onCallSupport:
+        - 9632070931
+        - 9000000001
+      

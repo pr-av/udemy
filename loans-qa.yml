@@ -1,0 +1,10 @@
+build:
+   version: "2.0"
+loans:
+   message: "Welcome to EasyBank loans related local Apis"
+   contactDetails: 
+      name: "zain"
+      email: "zain@gmail.com"
+   onCallSupport:
+        - 9452244322
+        - 8654645555

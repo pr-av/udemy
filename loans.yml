@@ -1,0 +1,10 @@
+build:
+  version: "2.0"
+loans:
+  message: "Welcome to EasyBank loans related local Apis"
+  contactDetails:
+    name: "Navami"
+    email: "navami@gmail.com"
+  onCallSupport:
+    - 9632223224
+    - 9000003554

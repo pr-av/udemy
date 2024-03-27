@@ -1,0 +1,12 @@
+
+build:
+   version: "1.0"
+cards:
+   message: "Welcome to EasyBank cards related local Apis"
+   contactDetails: 
+      name: "Praveen"
+      email: "praveenkumbar@gmail.com"
+   onCallSupport:
+        - 9632070931
+        - 9000000001
+      

@@ -1,0 +1,11 @@
+build:
+  version: "3.0"
+accounts:
+  message: "Welcome to EasyBank accounts related local Apis"
+  contactDetails:
+    name: "Navami"
+    email: "navami@gmail.com"
+  onCallSupport:
+    - 9632223224
+    - 9000003554
+

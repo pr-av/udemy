@@ -1,0 +1,10 @@
+build:
+   version: "2.0"
+cards:
+   message: "Welcome to EasyBank cards related local Apis"
+   contactDetails: 
+      name: "zain"
+      email: "zain@gmail.com"
+   onCallSupport:
+        - 9452244322
+        - 8654645555

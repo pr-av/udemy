@@ -1,0 +1,10 @@
+build:
+  version: "2.0"
+cards:
+  message: "Welcome to EasyBank cards related local Apis"
+  contactDetails:
+    name: "Navami"
+    email: "navami@gmail.com"
+  onCallSupport:
+    - 9632223224
+    - 9000003554
