@@ -5,7 +5,7 @@ accounts:
    message: "Welcome to EasyBank accounts related local Apis"
    contactDetails: 
       name: "Praveen"
-      email: "praveenkumbar@gmail.com"
+      email: "{cipher}32ec848fc83964bf3cc413b774be558e479dc2ffc607730de38ac7833a28e59127454482fd4c1f2894601eeaac5e91d9"
    onCallSupport:
         - 9632070931
         - 9000000001
