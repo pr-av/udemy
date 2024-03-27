@@ -1,5 +1,5 @@
 build:
-  version: "3.0"
+  version: "{cipher}aadc2997a795d2ea5a592b91143f7cc39521683795d2e6530e3ae5d405ccae35"
 accounts:
   message: "Welcome to EasyBank accounts related local Apis"
   contactDetails:
