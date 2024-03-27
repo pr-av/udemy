@@ -1,6 +1,6 @@
 
 build:
-   version: "1.0"
+   version: "{cipher}6697b53ea9472417647cea27b8209336ac85c806681c2105165948e7b264a889"
 loans:
    message: "Welcome to EasyBank loans related local Apis"
    contactDetails: 
