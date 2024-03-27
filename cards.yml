@@ -1,5 +1,5 @@
 build:
-  version: "2.0"
+  version: "{cipher}aadc2997a795d2ea5a592b91143f7cc39521683795d2e6530e3ae5d405ccae35"
 cards:
   message: "Welcome to EasyBank cards related local Apis"
   contactDetails:
