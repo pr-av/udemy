@@ -4,7 +4,7 @@ loans:
    message: "Welcome to EasyBank loans related local Apis"
    contactDetails: 
       name: "zain"
-      email: "zain@gmail.com"
+      email: "{cipher}5d7cd55c9d507ebde945daafb96e257b48dbb9cf6618cfa0b74a2290484c4e86"
    onCallSupport:
         - 9452244322
         - 8654645555
